@@ -6,7 +6,8 @@ CREATE TABLE pricing_data (
  high        DOUBLE PRECISION  NOT NULL, 
  low         DOUBLE PRECISION  NOT NULL,
  close       DOUBLE PRECISION  NOT NULL,
- volume      DOUBLE PRECISION  NOT NULL
+ volume      DOUBLE PRECISION  NOT NULL,
+ PRIMARY KEY (ticker, start_time)
 );
 SELECT create_hypertable('pricing_data', 'start_time');
 CREATE INDEX ON conditions (start_time DESC, ticker);
